@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Conferencia Bienestar Elyon Yireh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="styleheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-video logo-icon"></i>
+            </div>
+            <h1>Video Conferencia Bienestar Elyon Yireh</h1>
+            <p>Conectando personas con calidad y claridad</p>
+        </header>
+        
+        <div class="tab-content active" id="home-tab">
+            <div class="card">
+                <div class="btn-container">
+                    <button class="btn btn-primary" id="create-meeting-btn">
+                        <i class="fas fa-plus"></i> Crear Reunión
+                    </button>
+                    <button class="btn btn-secondary" id="join-meeting-btn">
+                        <i class="fas fa-user-plus"></i> Unirse a Reunión
+                    </button>
+                </div>
+                
+                <div id="create-meeting-section" class="hidden">
+                    <h2>Crear Nueva Reunión</h2>
+                    <button class="btn btn-success" id="generate-code-btn">
+                        <i class="fas fa-key"></i> Generar Código
+                    </button>
+                    
+                    <div id="meeting-info" class="meeting-info hidden">
+                        <strong>Información de la Reunión:</strong><br>
+                        Código: <span id="meeting-code"></span><br>
+                        Enlace: <span id="meeting-link"></span><br>
+                        <div class="btn-container">
+                            <button class="btn btn-secondary" id="copy-info-btn">
+                                <i class="fas fa-copy"></i> Copiar Información
+                            </button>
+                            <button class="btn btn-primary" id="start-call-btn">
+                                <i class="fas fa-play"></i> Iniciar Llamada
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="join-meeting-section" class="hidden">
+                    <h2>Unirse a Reunión</h2>
+                    <div class="form-group">
+                        <label for="meeting-code-input">Código de Reunión:</label>
+                        <input type="text" id="meeting-code-input" placeholder="Ingresa el código de 10 caracteres">
+                    </div>
+                    <button class="btn btn-success" id="join-btn">
+                        <i class="fas fa-sign-in-alt"></i> Unirse
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="call-tab">
+            <div class="card">
+                <h2>Videollamada en Progreso</h2>
+                <p id="current-meeting-code">Código: <span id="active-meeting-code"></span></p>
+                
+                <div class="participant-count">
+                    <i class="fas fa-users"></i> <span id="participant-count">0</span> participantes en la reunión
+                </div>
+                
+                <div class="participant-list" id="participant-list">
+                    <div class="participant-chip">
+                        <i class="fas fa-user"></i> Tú (Anfitrión)
+                    </div>
+                </div>
+                
+                <div class="video-container" id="videos-container">
+                    <div class="video-wrapper local-video">
+                        <video id="local-video" autoplay muted></video>
+                        <div class="video-label">Tú (Anfitrión)</div>
+                        <div class="video-controls">
+                            <button class="control-btn" id="mute-btn">🔇</button>
+                            <button class="control-btn" id="video-btn">📹</button>
+                            <button class="control-btn" id="screen-share-btn">🖥️</button>
+                            <button class="control-btn" id="record-btn">⏺️</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-controls">
+                    <button class="main-control-btn btn-primary" id="full-mute-btn">🔇</button>
+                    <button class="main-control-btn btn-primary" id="full-video-btn">📹</button>
+                    <button class="main-control-btn btn-warning" id="full-screen-share-btn">🖥️</button>
+                    <button class="main-control-btn btn-danger" id="hangup-btn">📞</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="brand">
+            <p>Bienestar Elyon Yireh &copy; 2025 - Tecnología que conecta corazones</p>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
